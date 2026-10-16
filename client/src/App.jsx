@@ -1,0 +1,113 @@
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { connectSocket, disconnectSocket, socket } from "./api/socket";
+import Navbar from "./components/Navbar";
+import AiDebate from "./pages/AiDebate";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import VideoDebate from "./pages/VideoDebate";
+import ProtectedRoute from "./components/ProtectedRoute";
+import CreateDebate from "./pages/CreateDebate";
+import DebateHistory from "./pages/DebateHistory";
+import Dashboard from "./pages/Dashboard";
+import MyDebates from "./pages/MyDebates";
+import { Toaster } from "react-hot-toast";
+
+function App() {
+  useEffect(() => {
+    connectSocket();
+    return () => {
+      disconnectSocket();
+    };
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-white text-slate-900">
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/signup" element={<Signup />} />
+
+          <Route
+            path="/create-debate"
+            element={
+              <ProtectedRoute>
+                <CreateDebate />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/debate-ai"
+            element={
+              <ProtectedRoute>
+                <AiDebate />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/video-debate/:roomId"
+            element={
+              <ProtectedRoute>
+                <VideoDebate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <ProtectedRoute>
+                <DebateHistory />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/my-debates"
+            element={
+              <ProtectedRoute>
+                <MyDebates />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 3000,
+            style: {
+              background: "#0f172a",
+              color: "#fff",
+              border: "1px solid #06b6d4",
+            },
+          }}
+        />
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;
