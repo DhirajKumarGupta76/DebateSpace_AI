@@ -1,4 +1,9 @@
+
 require("dotenv").config({ quiet: true });
+
+const dns = require("node:dns");
+
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 const http = require("http");
 
