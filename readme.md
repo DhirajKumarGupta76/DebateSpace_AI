@@ -8,7 +8,10 @@ Users can challenge other people in live debate rooms or practice with an AI opp
 
 ## 🚀 Live Demo
 
-[DebateSpace AI](https://debatespace-ai.vercel.app/)
+[DebateSpace AI](https://debatespace-ai-frontend.onrender.com)
+
+## LinkedIn Post
+https://www.linkedin.com/in/dhiraj-kumar-gupta76/recent-activity/all/
 
 ---
 
@@ -28,7 +31,7 @@ Users can challenge other people in live debate rooms or practice with an AI opp
 
 ### Video Debate
 
-![Video Debate](./screenshots/video-debate.png)
+![Video Debate](./screenshots/JoinMeeting.png)
 
 ### Debate History
 
