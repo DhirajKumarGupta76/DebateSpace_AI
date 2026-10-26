@@ -8,6 +8,7 @@ import { showError, showSuccess } from "../utils/toast";
 import PageLoader from "../components/PageLoader";
 
 function DebateHistory() {
+  // userstate tempary store and update state;
   const [debates, setDebates] = useState([]);
   const [loadingSummary, setLoadingSummary] = useState(null);
   const [expandedSummary, setExpandedSummary] = useState({});

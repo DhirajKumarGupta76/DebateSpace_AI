@@ -195,7 +195,7 @@ function AiDebate() {
     if (!userMessage.trim()) {
       return;
     }
-
+// next user message 
     const nextUserMessage = userMessage.trim();
     setUserMessage("");
     setError("");
